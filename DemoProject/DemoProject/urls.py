@@ -22,9 +22,8 @@ Including another URLconf
 # ]
 
 from django.contrib import admin
-from django.urls import include, path
-from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import include, path
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
@@ -32,9 +31,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # ] + staticfiles_urlpatterns()
 urlpatterns = [
 
-    path('', include('demoapp.urls', namespace="dempapp")),
-    path('admin/', admin.site.urls),
-    #path('demo/about/', views.about),
-] + staticfiles_urlpatterns()
+                  path('', include('demoapp.urls', namespace="dempapp")),
+                  path('admin/', admin.site.urls),
+                  # path('demo/about/', views.about),
+              ] + staticfiles_urlpatterns()
 
 handler404 = 'DemoProject.views.handler404'
