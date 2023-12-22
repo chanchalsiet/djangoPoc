@@ -6,8 +6,8 @@ from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import View
-from .forms import LogForm
 
+from .forms import LogForm
 
 
 # def index(request):
@@ -22,24 +22,28 @@ def index(request):
 '''.format(path, method)
     return HttpResponse(content)
 
+
 def homepage(request):
     return HttpResponse("Welcome to little lemon")
 
+
 def menu(request):
-    menu_items = {'mains' :[
-        {'name':'greek yougart','price' : '12'},
+    menu_items = {'mains': [
+        {'name': 'greek yougart', 'price': '12'},
         {'name': 'soft drink', 'price': '10'},
         {'name': 'tomato', 'price': '9'},
         {'name': 'onion', 'price': '5'},
         {'name': 'mater', 'price': '2'},
         {'name': 'garlic', 'price': '1'},
         {'name': 'ginger', 'price': '20'},
-     ]}
-    return render(request,'menu.html',menu_items)
+    ]}
+    return render(request, 'menu.html', menu_items)
+
 
 def display_date(request):
     date_joined = datetime.today().year
     return HttpResponse(date_joined)
+
 
 def pathview(request, name, id):
     return HttpResponse("Name:{} UserID:{}".format(name, id))
@@ -49,6 +53,7 @@ def qryview(request):
     name = request.GET['name']
     id = request.GET['id']
     return HttpResponse("Name:{} UserID:{}".format(name, id))
+
 
 def myview(request):
     return HttpResponsePermanentRedirect(reverse('demoapp:login'))
@@ -88,5 +93,4 @@ def form_view(request):
         if form.is_valid():
             form.save()
     context = {"form": form}
-    return  render(request, 'home.html', context)
-
+    return render(request, 'home.html', context)
