@@ -1,0 +1,8 @@
+Django
+managr.py makemigrations
+managr.py migrate
+showmigrationsm
+from demoapp.models import Menu
+Menu.objects.get
+Menu.objects.all() # show all data
+brew install mysql
