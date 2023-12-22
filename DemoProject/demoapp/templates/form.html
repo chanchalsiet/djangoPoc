@@ -1,0 +1,12 @@
+{% if name and user_id %}
+    We just submitted a form for userid: {{user_id}} and name {{ name }}
+{% endif %}
+
+<form action="{% url 'demoapp:login' %}" method="POST">
+<!--<form action="{{ get_url_path }}" method="POST">-->
+    {% csrf_token %}
+    <p>Name: <input type="text" name="id"></p>
+    <p>UserID :<input type="text" name="name"></p>
+    <input type="submit">
+
+</form>
